@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="Edouard legoupil">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css">
+	
+	  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <h1>Setting up reproducible data analysis workflow</h1>
+  
+</section>
+<section class="slide " id="start">
+  <h2>An emerging profile...</h2>
+  <p><img src="assets/img/datascience.png" alt=""></p>
+
+<p>For more, on the &quot;humanitarian data scientist&quot; profile concept, <a href="http://blog.veritythink.com/post/105715607274/humanitarian-data-scientist-who-and-how">see the article here.</a>. </p>
+
+<h3>This presentation an induction to a skill (Usage of R statistical language) that can support most of the steps of an analysis workflow.</h3>
+
+<p>It contains plenty of <a href="index.html#plan">links</a> that lead to additional ressources. </p>
+
+</section>
+<section class="slide " id="challenge">
+  <h2>...to address new analysis challenges</h2>
+  <p>With Mobile data collection, it&#39;s now easy to collect thousends of records for hundreds of variables... For instance, the &quot;Refugees home visit survey&quot;&quot; in Jordan has 700 variables recorded on more than 70,000 observations!</p>
+
+<ul>
+<li><p><strong><em>Answer complex questions</em></strong>: Univariate analysis provides too long reports. Multivariate analysis are required to address questions that includes the processing of multiple variables. Potentials questions could be:
+&quot;<em>What are the main factors attached to the occurence of socio-economic vulnerability?</em>&quot;&quot; or &quot;<em>Is there a correlation between a certain type of violation and a specific profile within the population?</em>&quot; or&quot;<em>Can we identify individuals within a population with abnormal profiles ralted to the rest of the population?</em>&quot;</p></li>
+<li><p><strong><em>Discover hidden patterns</em></strong> ; Hypothesis-based deductive reasoning only allows to confirm something known before while <a href="http://www.boozallen.com/media/file/The-Field-Guide-to-Data-Science.pdf">patterns detection allows for inductive approaches</a>. 
+Exploratory analysis are required to find out for instance if &quot;<em>Is there a multidiemsnional typology of individuals within this large population group</em>&quot;</p></li>
+</ul>
+
+<p><img src="assets/img/Maturity.png" alt=""></p>
+
+</section>
+<section class="slide " id="plan">
+  <h2>Presentation plan</h2>
+  <p>INTRO: Why using R?
+<a href="index.html#intro1">Reproducible research, environment installation</a></p>
+
+<p>PART 1: Set up the software environment
+<a href="index.html#part1-1">Installation of R, Rstudio, Git &amp; Github</a></p>
+
+<p>PART 2: Manage data 
+<a href="index.html#part2-1">Manipulating data</a></p>
+
+<p>PART 3: Produce graphics 
+<a href="index.html#part3-1">Creating graphs</a> </p>
+
+<p>PART 4: Create Maps
+<a href="index.html#part4-1">Mapping with R spatial packages</a></p>
+
+<p>PART 5:  Go further on data mining 
+<a href="index.html#part5-1">Advanced Statistical analysis</a></p>
+
+<p>PART 6: Generate report and presentation
+<a href="index.html#part6-1">Rmarkdown tags</a></p>
+
+</section>
+<section class="slide class2" id="intro1">
+  <h2>INTRO: A typical analysis path implies:</h2>
+  <ol>
+<li><p>Associate data  with other tables with <strong>ACCESS</strong>  <img src="assets/img/Logo_Microsoft_Access_2013.png" alt=""></p></li>
+<li><p>then explore through graphs and eventually some VBA macros with <strong>EXCEL</strong>  <img src="assets/img/Microsoft_Excel_2013_logo.svg.png" alt=""> </p></li>
+<li><p>then mapping with <strong>ArcGIS</strong>  <img src="assets/img/ArcGIS.png" alt=""></p></li>
+<li><p>then write up narratives in <strong>WORD</strong>  <img src="assets/img/Microsoft_Word_logo.png" alt=""> </p></li>
+<li><p>and design a full document with  <strong>INDESIGN</strong>  <img src="assets/img/Adobe_InDesign_icon.png" alt=""></p></li>
+<li><p>or create an infographics with  <strong>ILLUSTRATOR</strong>  <img src="assets/img/Adobe_Illustrator_icon.png" alt=""></p></li>
+</ol>
+
+</section>
+<section class="slide class1" id="intro2">
+  <h2>INTRO: Issues with such workflow</h2>
+  <p>When managing numerous analysis and continuously changing dataset (like household survey), this workflow is <strong>not</strong> the most effective:</p>
+
+<h3>Data are manipulated through &quot;point-and-click&quot; user interfaces!</h3>
+
+<h3>Data are exported / imported from a software to another (Excel, GIS, Word...) using different formats!</h3>
+
+<h3>All results (figures, tables) are <strong>manually</strong> copied/pasted to the final publishing system...</h3>
+
+<blockquote>
+<p>This consumes time and open space for errors...</p>
+</blockquote>
+
+<p><img src="assets/img/exhausted.png" alt=""></p>
+
+</section>
+<section class="slide class1" id="intro3">
+  <h2>INTRO: When reviewing the analysis...</h2>
+  <ul>
+<li><p>What analysis is <strong>behind the figure</strong>? Did it accounts for [...] in the analysis? </p></li>
+<li><p>Were <strong>outliers</strong> identified?</p></li>
+<li><p>What <strong>dataset</strong> was used (e.g. final vs preliminary dataset)?</p></li>
+<li><p>Oops, there is an error in the data. Can we <strong>repeat the analysis</strong>? And update quickly the figures, graphs and tables in the report and the presentation!</p></li>
+<li><p>As a coauthor/reader, one would like to see the whole <strong>research process</strong> (how we arrived to that conclusion), rather than cooked manuscript with inserted tables/figures.</p></li>
+</ul>
+
+</section>
+<section class="slide class1" id="intro4">
+  <h2>INTRO:  Enabling a complete analysis workflow</h2>
+  <p>As soon as all steps <strong>DATA + ANALYSIS + PLOT + MAP + NARRATIVE</strong> are done through <strong>series of written command recorded in scripts</strong> instead of <strong>hundreds of mouse clicks</strong>:</p>
+
+<ul>
+<li><p>when spotting error in the data, or using different dataset, one just need to make changes in the script and report will update automatically;</p></li>
+<li><p>Data management becomes be <em>de facto</em> fully documented (no more manual changes in Excel);</p></li>
+<li><p>Analysis is documented and ready for any kind of collaborative review;</p></li>
+<li><p>Customisation are facilitated and allow to deliver  final product  with a professional look&#39;n&#39;feel .</p></li>
+</ul>
+
+<h3>Analysis becomes streamlined and <a href="http://muschellij2.github.io/summerR_2015/modules/module12.html">reproducible</a>!</h3>
+
+<h3>A &quot;collaboration mode&quot; is enabled from the begining of the process!</h3>
+
+</section>
+<section class="slide class1" id="intro5">
+  <h2>INTRO:  From &quot;click&quot; to &quot;script&quot;</h2>
+  <p>Using the right combination of packages, you can integrate all necessary data analysis steps into <strong>scripts</strong>:</p>
+
+<ul>
+<li><p>Data management (clean, recode, merge, reshape)</p></li>
+<li><p>Data analysis (test, regression, multivariate analysis, etc...)</p></li>
+<li><p>Data visualisation (plot, map, graph...)</p></li>
+<li><p>Writing up results (report and presentation generation)</p></li>
+</ul>
+
+<p><img src="assets/img/analysis.png" alt=""></p>
+
+</section>
+<section class="slide class1" id="intro6">
+  <h2>INTRO: The Reproducible Research Manisfesto</h2>
+  <ol>
+<li><p>For every result, <strong>keep track</strong> of how it was produced</p></li>
+<li><p><strong>Avoid manual data manipulation</strong> steps</p></li>
+<li><p><strong>Archive</strong> the exact versions of all external programs used</p></li>
+<li><p><strong>Version control</strong> all custom scripts</p></li>
+<li><p><strong>Record all intermediate results</strong>, when possible in standardized formats</p></li>
+<li><p>For analyses that include randomness, <strong>note underlying random seeds</strong></p></li>
+<li><p>Always <strong>store raw data</strong> behind plots</p></li>
+<li><p>Generate hierarchical analysis output, allowing layers of increasing detail to be inspected</p></li>
+<li><p>Connect <strong>textual statements</strong> to underlying results</p></li>
+<li><p>Provide <strong>public access</strong> to scripts, runs, and results</p></li>
+</ol>
+
+</section>
+<section class="slide class2" id="part1-1">
+  <h2>PART 1: Why R?</h2>
+  <p><img src="assets/img/language.png" alt="">  </p>
+
+<p><a href="http://blog.datacamp.com/r-or-python-for-data-analysis/">Engineers tend to use Python over R</a>, but R remains the prefered language of statisticians who needs latest techniques &amp; Algorythm. R can also be compared to <a href="http://r4stats.com/blog">proprietary statistical software such as stata or SPSS</a> but has the advantage of being totally free to install &amp; use. </p>
+
+</section>
+<section class="slide class2" id="part1-2">
+  <h2>PART 1: &quot;THE&quot; statistical language</h2>
+  <p><img src="assets/img/Rlogo.png" alt="">  <a href="http://www.r-project.org/">R</a> is a programming language and a software environment for statistical computing and graphics. The first version of R has been released in 1997! </p>
+
+<p>The capabilities of R are extended through <strong>user-created packages</strong>, which allow specialized statistical techniques, graphical devices, import/export capabilities, reporting tools. </p>
+
+<p>A core set of packages is included with the installation of R. More than <a href="http://cran.r-project.org/web/packages/available_packages_by_date.html">5,800 additional packages</a> and 120,000 functions (as of June 2014) are  developped and shared by academics and experts.</p>
+
+<p>R is extremely well documented. The best is to learn through <a href="http://stackoverflow.com/questions/tagged/r">experience.. &amp; more than 100,000 questions about R in stackoverflow</a> in addition of the numerous ressources to <a href="http://www.ats.ucla.edu/stat/r/">learn R</a> from scratch as well as other <a href="http://www.ats.ucla.edu/stat/r/seminars/intro.htm">quick intro</a>. </p>
+
+</section>
+<section class="slide class2" id="part1-3">
+  <h2>PART 1:  Installation of R and its interface</h2>
+  <p><a href="http://cran.r-project.org/">install R</a> then install <a href="http://www.rstudio.com/products/rstudio/">Rstudio</a> <br></p>
+
+<p><img src="assets/img/rstudio-windows.png" alt=""></p>
+
+<p>Rstudio is a graphical user interface to write R scripts. <i>In this tutorial, we will use Rstudio but you can also find alternatives such as <a href="http://www.rcommander.com/">Rcommander</a> or <a href="http://www.deducer.org/">DeduceR</a></i></p>
+
+<p>Now you can add as <a href="http://cran.r-project.org/web/packages/available_packages_by_date.html">many packages</a> as needed from the CRAN repository</p>
+
+</section>
+<section class="slide class2" id="part1-4">
+  <h2>PART 1: <strong>Collaborate</strong> through &quot;version control&quot;</h2>
+  <p><img src="assets/img/github.jpg" alt=""> </p>
+
+<p><a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Install Git</a>, <a href="https://help.github.com/articles/signing-up-for-a-new-github-account">Create your account</a> and <a href="https://help.github.com/articles/fork-a-repo">fork</a> this <a href="https://github.com/Edouard-Legoupil/humanitaRian-data-science">tutorial</a></p>
+
+<p>Enable git in Rstudio (Tools&gt;Global Options). You can now load the tutorial (File&gt;New Projet&gt;From Version control) as a project. All your edits will be now under version control!</p>
+
+<p><img src="assets/img/gitrstudio.png" alt=""></p>
+
+</section>
+<section class="slide class2" id="part1-5">
+  <h2>PART 1: Collaborate: commit, push, pull</h2>
+  <p>You can now <a href="http://nicercode.github.io/git/rstudio.html">manage your R script in git</a> within the project in your account.</p>
+
+<p>Afterwards, you can share back your contribution with the original author via <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a>
+<img src="assets/img/git-workflow-gitflow.png" alt=""></p>
+
+<p>More details on <a href="https://www.atlassian.com/git/workflows#!workflow-gitflow">gitworkflow here</a>. </p>
+
+</section>
+<section class="slide class3" id="part2-1">
+  <h2>PART 2: Writing commands</h2>
+  <ul>
+<li><p><code>R</code> code can be entered directly into the command console or saved to a script.</p></li>
+<li><p>Saved Scripts be run inside a session using  the <code>source</code> function
+Commands are separated either by a <code>;</code> or by a newline.</p></li>
+<li><p><code>R</code> is case sensitive.</p></li>
+<li><p>Use <code>#</code> character at the beginning of a line to insert non executed comments</p></li>
+<li><p>Wide range of <a href="http://adv-r.had.co.nz/Vocabulary.html">functions</a>. Help by preceding the name of the function with <code>?</code> (e.g. <code>?require</code>).</p></li>
+<li><p>Data, functions and output are assigned and stored as <strong><em>objects</em></strong> using the <code>&lt;-</code> or <code>=</code> operator</p></li>
+</ul>
+
+<p>When writing commands, it&#39;s good to adopt a <a href="http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">consistent Coding convention</a>. When writing script, be consistent in your <a href="https://leanpub.com/datastyle">style</a>. When starting a project, to organised files/folders around a <a href="http://nicercode.github.io/blog/2013-04-05-projects/">consistent logic</a>. 
+<img src="assets/img/projects.png" alt=""></p>
+
+</section>
+<section class="slide class3" id="part2-2">
+  <h2>PART 2: Objects &amp; Data elements</h2>
+  <ul>
+<li><p><code>Vectors</code> are a core data structure in R, and are created with <code>c()</code>. Elements in a vector must be of the same type.</p></li>
+<li><p><code>Data.frame</code> where each column is a vector, but adjacent vectors can hold different things</p></li>
+<li><p><code>Matrix</code> just like a data frame except it&#39;s all numeric</p></li>
+<li><p><code>List</code> are made of any dimension, mix and match</p></li>
+<li><p><code>Factors</code> are a special class that R uses for categorical variables, which also allows for value labeling and ordering.</p></li>
+</ul>
+
+<p>Reference link on <a href="http://www.cookbook-r.com/Manipulating_data/">Manipulating data</a></p>
+
+</section>
+<section class="slide class3" id="part2-3">
+  <h2>PART 2: Vector Example</h2>
+  <pre><code class="r">  numbers = c(23, 13, 5, 7, 31)
+  names = c(&quot;mohammed&quot;, &quot;hussein&quot;, &quot;ali&quot;)
+
+#Elements are indexed starting at 1, and are accessed with `[]` notation.
+    numbers[1] # 23
+    names[1] # mohammed
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-4">
+  <h2>PART 2: Data frames</h2>
+  <p><a href="http://www.r-tutor.com/r-introduction/data-frame">Data frames</a></p>
+
+<pre><code class="r">    books = data.frame(
+        title = c(&quot;harry potter&quot;, &quot;war and peace&quot;, &quot;lord of the rings&quot;),
+        author = c(&quot;rowling&quot;, &quot;tolstoy&quot;, &quot;tolkien&quot;),
+        num_pages = c(&quot;350&quot;, &quot;875&quot;, &quot;500&quot;)
+    )
+
+# you can access columns of a data frame with `$`.
+    books$title # c(&quot;harry potter&quot;, &quot;war and peace&quot;, &quot;lord of the rings&quot;)
+    books$author[1] # &quot;rowling&quot;
+
+#You can also create new columns with `$`.
+    books$num_bought_today = c(10, 5, 8)
+    books$num_bought_yesterday = c(18, 13, 20)
+    books$total_num_bought = books$num_bought_today + books$num_bought_yesterday
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-5">
+  <h2>PART 2: Load a Data Frame</h2>
+  <pre><code class="r">data(CASchools)
+mydata &lt;- CASchools
+
+# load a data set from csv and assign it to an object called &#39;mydata&#39;
+#mydata &lt;- read.csv(&quot;unhcr_mass_comm_db_merged_20140612.csv&quot;) 
+
+# first few rows of the dataset
+head(mydata)
+
+# last few rows
+tail(mydata)
+
+# variable names
+colnames(mydata)
+
+# pop-up view of entire data set (uncomment to run)
+# View(mydata)
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-6">
+  <h2>PART 2: Initial Exploration</h2>
+  <pre><code class="r"># dimension of the data frame
+dim(mydata)
+
+# Structure of the data frame of all variables
+# this includes the class(type) i.e factor or not
+str(mydata)
+
+# summary statistics with means for every variable
+summary(mydata)
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-7">
+  <h2>PART 2: View Data</h2>
+  <pre><code class="r"># single cell value
+mydata[2,3]
+
+# omitting row value implies all rows; here all rows in column 3
+mydata[,3]
+
+# omitting column values implies all columns; here all columns in row 2
+mydata[2,]
+
+# can also use ranges - rows 2 and 3, columns 2 and 3
+mydata[2:3, 2:3]
+
+# get first 10 rows of variable female using two methods
+mydata[1:10, &quot;female&quot;]
+mydata$female[1:10]
+
+# get column 1 for rows 1, 3 and 5
+mydata[c(1,3,5), 1]
+
+# get row 1 values for variables female, prog and socst
+mydata[1,c(&quot;female&quot;, &quot;prog&quot;, &quot;socst&quot;)]
+
+# sort data using the order function.
+sorteddata &lt;- mydatad[order(d$id, d$female), ]
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-8">
+  <h2>PART 2: Data Cleaning</h2>
+  <pre><code class="r">## cleaning Geneder variable encoding
+data$gender[data$gender %in%  c(&quot;Male&quot;, &quot;M&quot;, &quot;m&quot;)] &lt;- &quot;Male&quot;
+
+# creating a date for sorting
+circ$date &lt;- as.Date(circ$date, &quot;%m/%d/%Y&quot;) 
+</code></pre>
+
+<p>Useful String functions</p>
+
+<ul>
+<li><code>toupper()</code>, <code>tolower()</code> - uppercase or lowercase your data:</li>
+<li><code>str_trim()</code> (in the <code>stringr</code> package) - will trim whitespace</li>
+<li><code>nchar</code> - get the number of characters in a string</li>
+<li><code>substr(x, start, stop)</code> - substrings from position start to position stop</li>
+<li><code>strsplit(x, split)</code> - splits strings up - returns list!</li>
+<li><code>paste()</code> - paste strings together - look at <code>?paste</code></li>
+</ul>
+
+<p><a href="http://muschellij2.github.io/summerR_2015/modules/module9.html">More on cleaning here</a></p>
+
+</section>
+<section class="slide class3" id="part2-9">
+  <h2>PART 2: Subsetting Variables</h2>
+  <p>Often, datasets come with many more variable than we want. We can also use subset to keep only the variables we need.</p>
+
+<p>We can use  the select argument to subset by variable rather than by observation.</p>
+
+<pre><code class="r"># select is special, so we do not need to quote the variable names
+mydataselect &lt;- subset(mydata, select = c(id, female, read, write))
+
+# the - preceding c(female... , which means drop these variables
+mydatadropped &lt;- subset(mydata, select = -c(female, read, write))
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-10">
+  <h2>PART 2: Merging 2 Data Frames</h2>
+  <ul>
+<li><p>It is done through the function merge</p></li>
+<li><p>Merging is the equivalent of a join in SQL (and supports natural natural and outer joins)</p></li>
+</ul>
+
+<pre><code class="r"># LEFT JOIN using different ID
+datamerged &lt;- merge(x=data1, y=data2, by.x=&quot;id1&quot;, by.y=&quot;id2&quot;, all.x=TRUE )
+
+# RIGHT JOIN using ID who have the same name in both dataframe
+datamerged &lt;- merge(x=data1, y=data2, by=&quot;id&quot;, all.y=TRUE )
+
+# OUTER JOIN using two variables
+datamerged &lt;- merge(x=data1, y=data2, by=c(&quot;caseid&quot;,&quot;name&quot;), all=TRUE )
+</code></pre>
+
+</section>
+<section class="slide class3" id="part2-11">
+  <h2>PART 2: Reshaping Data</h2>
+  <p>A common operation is the transformation between wide and long data. 
+This is basically the equivalent of <strong>pivot table</strong> in Excel or a <strong>cross tab query</strong> in Access.</p>
+
+<ul>
+<li><strong>Wide</strong> - multiple measurements are variables / columns so that the data gets wider with more measurements</li>
+<li><strong>Long</strong> - multiple measurements are rows so data gets longer with more measurements. One example would be many ids with multiple visits. Long-format data isn’t necessarily only two columns. </li>
+</ul>
+
+<p>The corresponding functions (melt and cast) are in the <strong>reshape2</strong> packages is based around two key functions: </p>
+
+<pre><code class="r">install.packages(&quot;reshape2&quot;) ## install the package in you station - do it only once
+library(&quot;reshape2&quot;) ## load the package in your session
+
+#melt takes wide-format data and melts it into long-format data.
+data.training &lt;- melt(data, id=c(9), measure=c(12:14))
+
+#cast takes long-format data and casts it into wide-format data.
+data.training.summary &lt;- dcast(data.training, variable ~ value )
+</code></pre>
+
+<p>More <a href="http://www.r-bloggers.com/data-manipulation-with-reshape2/">info here</a></p>
+
+</section>
+<section class="slide class4" id="part3-1">
+  <h2>PART 3:  Plot Data</h2>
+  <p>A plot can contain an arbitrary number of layers. </p>
+
+<p>Each layer uses a specific kind of statistic to summarize data, draws a specific kind of geometric object (geom) for each of the (statistically aggregated) data items, and uses a specific kind of position adjustment to deal with geoms that might visually obstruct each other.</p>
+
+<p>Besides a list of layers, a plot also has a coordinate system, scales, and a faceting specification. These three aspects are shared among all layers in the plot. </p>
+
+<p>You can <a href="http://www.cookbook-r.com/Graphs/">create basic graphs with the core R</a> but the  <a href="http://docs.ggplot2.org/current/">Gplot2 package</a> is the way to produce advanced graphs.</p>
+
+</section>
+<section class="slide class4" id="part3-2">
+  <h2>PART 3: Decomposition of a Graphic</h2>
+  <p>The <strong>&quot;grammar of graphics&quot;</strong> is a <a href="https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html">conceptual description</a> of all potential graphs. It can be summarized as follows:</p>
+
+<pre><code>-  plot ::= coord scale+ facet? layer+
+
+-  layer ::= data mapping stat geom position?
+</code></pre>
+
+<p><img src="assets/img/ggplot2-anatomy-all-annotated.png" alt=""> </p>
+
+</section>
+<section class="slide class4" id="part3-3">
+  <h2>PART 3: Highly customized plots</h2>
+  <p>With ggplot2, a <strong>plot</strong> is defined through the following variables: </p>
+
+<ul>
+<li><h3>a coordinate system (<strong>coord</strong>),</h3></li>
+<li><h3>one or more scales (<strong>scale</strong>),</h3></li>
+<li><h3>an optional faceting specification (<strong>facet</strong>),</h3></li>
+<li><h3>and one or more layers (<strong>layer</strong>).</h3></li>
+</ul>
+
+<p>A <strong>layer</strong> is then defined as</p>
+
+<ul>
+<li><h3>a linked R data frame (<strong>data</strong>),</h3></li>
+<li><h3>a specification mapping columns of that frame into aesthetic properties (<strong>mapping</strong>),</h3></li>
+<li><h3>a statistical approach to summarize the rows of that frame (<strong>stat</strong>),</h3></li>
+<li><h3>a geometric object to visually represent that summary (<strong>geom</strong>),</h3></li>
+<li><h3>and an optional position adjustment to move overlapping geometric objects out of their way (<strong>position</strong>).</h3></li>
+</ul>
+
+</section>
+<section class="slide class4" id="part3-4">
+  <h2>PART 3: Example for an age pyramid</h2>
+  <p><a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2">R cookbook - colors with Gplot2</a></p>
+
+<p><a href="http://sape.inf.usi.ch/quick-reference/ggplot2">Gplot2 tutorial</a></p>
+
+</section>
+<section class="slide class5" id="part4-1">
+  <h2>PART 4: Create Maps</h2>
+  <p><a href="https://github.com/Robinlovelace/Creating-maps-in-R">Creating maps in R</a></p>
+
+<p>R offers a large <a href="http://cran.r-project.org/web/views/Spatial.html">number of packages to deal with spatial data</a>. A really good <a href="https://raw.githubusercontent.com/Robinlovelace/Creating-maps-in-R/master/intro-spatial-rl.pdf">tutorial is here</a></p>
+
+<pre><code class="r">## Using the Spatial &amp; GDAL library 
+library(&quot;sp&quot;)
+library(&quot;rgdal&quot;)
+
+## reading a shapefile and converting it into a &#39;spatialdataframe
+jordanmap &lt;- readOGR (dsn = &quot;data&quot; , layer = &quot;jordan&quot;)
+
+## We can now display the map as a plot with core R function
+plot(jordanmap)
+</code></pre>
+
+</section>
+<section class="slide class5" id="part4-2">
+  <h2>PART 4: Thematic Mapping</h2>
+  <p>One approach is to approach maps as if they were plots and use the same <a href="http://spatial.ly/2013/12/introduction-spatial-data-ggplot2/">ggplot2 package to produce map</a>.</p>
+
+<pre><code class="r">library(&quot;ggplot2&quot;)
+## to use the spatial dataframe with ggplot2, we need first to &#39;fortity&#39; it
+
+
+## then we can simply create the plot
+</code></pre>
+
+</section>
+<section class="slide class5" id="part4-3">
+  <h2>PART 4: Spatial analysis</h2>
+  <p>An interesting application of using R is to retrieve bioclimatic information for winterisation analysis. For instance, we have a list of IDP locations with coordinates for which <a href="http://www.worldclim.org/">bioclim variables</a> (such as BIO5 = Max Temperature of Warmest Month, BIO6 = Min Temperature of Coldest Month, BIO10 = Mean Temperature of Warmest Quarter, BIO11 = Mean Temperature of Coldest Quarter, BIO13 = Precipitation of Wettest Month, BIO19 = Precipitation of Coldest Quarter). Tiles can be <a href="http://www.worldclim.org/tiles.php">downloaded as geotiff</a></p>
+
+<pre><code class="r">library(&quot;raster&quot;)
+library(&quot;sp&quot;)
+bio5 &lt;- raster(&quot;data/shp/bio5_17.tif&quot;, native = T)
+bio6 &lt;- raster(&quot;data/shp/bio6_17.tif&quot;, native = T)
+bioall &lt;- stack(bio5, bio6)
+
+## Converting the dataframe containing idp site in a spatial dataframe
+coordinates(idpsite) &lt;- c(&quot;Longitude&quot;, &quot;Latitude&quot;)
+
+## Extracting now the bio variables for each coordinates
+idpsite.bioall &lt;- extract(bioall, masterloc, df = TRUE)
+
+
+## Then classifying the temperatures in order to get statistics
+library(&quot;classint&quot;)
+
+idpsite.bioall$maxtemp &lt;- as.factor(findCols(classIntervals(idpsite.bioall$bio5_17/10, n = 11, style = &quot;fixed&quot;, fixedBreaks = c(-10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55))))
+
+## Renaming categories
+idpsite.bioall$maxtemp &lt;- revalue(idpsite.bioall$maxtemp, c(`1` = &quot;-10 to -5°C&quot;, `2` = &quot;-5 to 0°C&quot;, `3` = &quot;0 to 5°C&quot;, `4` = &quot;5 to 10°C&quot;, `5` = &quot;10 to 15°C&quot;,  `6` = &quot;15 to 20°C&quot;, `7` = &quot;20 to 25°C&quot;, `8` = &quot;25 to 30°C&quot;, `9` = &quot;30 to 35°C&quot;, `10` = &quot;35 to 40°C&quot;, `11` = &quot;40 to 45°C&quot;, `12` = &quot;45 to 50°C&quot;, `13` = &quot;50 to 55°C&quot;))
+</code></pre>
+
+<p><a href="https://github.com/unhcr-iraq/dtm-analysis/blob/gh-pages/code/climate.R">See a practical example here</a></p>
+
+</section>
+<section class="slide class6" id="part4-4">
+  <h2>PART 4: Redistricting</h2>
+  <p>Analytical regionalization (also known as Redisticting or spatially constrained clustering) is a scientific way to decide how to group a large number of geographic areas or points into a smaller number of regions based on similarities in one or more variables (i.e.: refugee numbers, numbers of site, environmental condition, etc.). 
+<img src="assets/img/district.png" alt=""></p>
+
+<p>An intial point can be to convert point data into polygons that will be then aggregated togehter to form the operational region. A <a href="http://stackoverflow.com/questions/12156475/combine-voronoi-polygons-and-maps">vornoipolygon</a> function can be created. </p>
+
+<pre><code class="r">idpsite.in.district &lt;- voronoipolygons(idpsite,district)
+## Let&#39;s allocate the right Spatial Reference System Identifier (SRID)
+proj4string(idpsite.in.district) &lt;- &#39;+proj=longlat&#39;
+## we can now save the out put as a shapefile
+writeOGR(vorototal,&quot;out&quot;,&quot;idpsite.in.district&quot;,driver=&quot;ESRI Shapefile&quot;, overwrite_layer=TRUE)
+</code></pre>
+
+<p>An open source library of <a href="http://www.rise-group.org/risem/clusterpy/index.html">spatially constrained clustering algorithms</a> is avaialble in Python</p>
+
+<pre><code class="r">library(rPython)
+# Load/run the main Python script
+python.load(&quot;regionalise.py&quot;)
+</code></pre>
+
+<p><a href="https://github.com/unhcr-iraq/cccm-assessment/blob/master/voronoi.R">Creating Voronoi polygons</a></p>
+
+</section>
+<section class="slide class6" id="part5-1">
+  <h2>PART 5: Linear Regression</h2>
+  <p>A regression is used when one is trying to predict the value of a variable using other variables.
+A simple use case is to  observe expenditure per capita through household surveys among a sample of refugees and then to predict the same expenditure per capita on the whole registered refugee population.</p>
+
+<pre><code class="r">## Companion to Applied Regression
+library(&quot;CAR&quot;) 
+
+## calculate a regression with lm function of the expenditure per capita observed in a sample 
+## but using variables recorded through registration. For the regression, variables are converted to binary versions. 
+regression &lt;- lm(expenditure.percapita ~
+                    gender.male + case.size.2 + case.size.3plus + child.grp2 + child.grp3plus + mar_single + mar_married +  edu.highest.grp1 + edu.highest.grp2, 
+               data= sample.householdsurvey)
+
+## analyse the result of the regression:
+summary(regression)
+
+## Checking the validity of the model - i.e. residuals follow a &quot;normal&quot;
+hist(resid(regression))
+
+## Now given that the smae exact variable are present in both &#39;sample.householdsurvey&#39; &amp; &#39;data.registration&#39;
+## we can calculate the predicted expenditure per capita on all registered refugees and assign it in the variable &#39;prediction&#39; within the data frame &#39;data.registration&#39;      
+data.registration$prediction &lt;- predict(regression, newdata=data.registration)
+</code></pre>
+
+<p>See a practical example in the <a href="https://github.com/unhcr-jordan/vaf/blob/master/code/analytic_code/2_Welfare-Model_ProGres_only.R">VAF project</a>.</p>
+
+<p>More on advanced statistical analysis <a href="http://www.cookbook-r.com/Statistical_analysis/">here</a>.</p>
+
+</section>
+<section class="slide class6" id="part5-2">
+  <h2>PART 5: 9 others Common Prediction Algorythms (1/4)</h2>
+  <p>See also <a href="http://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms/">presentation of common machine learning algorythm</a>. </p>
+
+<h3>Logistic Regression</h3>
+
+<pre><code class="r">## Load Train and Test datasets
+## Identify feature and response variable(s) and values must be numeric and numpy arrays
+x_train &lt;- input_variables_values_training_datasets
+y_train &lt;- target_variables_values_training_datasets
+x_test &lt;- input_variables_values_test_datasets
+x &lt;- cbind(x_train,y_train)
+## Train the model using the training sets and check score
+logistic &lt;- glm(y_train ~ ., data = x,family=&#39;binomial&#39;)
+summary(logistic)
+## Predict Output
+predicted= predict(logistic,x_test)
+</code></pre>
+
+<h3>Decision Tree</h3>
+
+<pre><code class="r">library(rpart)
+x &lt;- cbind(x_train,y_train)
+## Grow tree 
+fit &lt;- rpart(y_train ~ ., data = x,method=&quot;class&quot;)
+summary(fit)
+## Predict Output 
+predicted= predict(fit,x_test)
+</code></pre>
+
+</section>
+<section class="slide class6" id="part5-3">
+  <h2>PART 5: 9 others Common Prediction Algorythms (2/4)</h2>
+  <h3>SVM (Support Vector Machine)</h3>
+
+<pre><code class="r">library(e1071)
+x &lt;- cbind(x_train,y_train)
+# Fitting model
+fit &lt;-svm(y_train ~ ., data = x)
+summary(fit)
+#Predict Output 
+predicted= predict(fit,x_test)
+</code></pre>
+
+<h3>Naive Bayes</h3>
+
+<pre><code class="r">library(rpart)
+x &lt;- cbind(x_train,y_train)
+## grow tree 
+fit &lt;- rpart(y_train ~ ., data = x,method=&quot;class&quot;)
+summary(fit)
+## Predict Output 
+predicted= predict(fit,x_test)
+</code></pre>
+
+</section>
+<section class="slide class6" id="part5-5">
+  <h2>PART 5: 9 others Common Prediction Algorythm  (3/4)</h2>
+  <h3>KNN (K- Nearest Neighbors)</h3>
+
+<pre><code class="r">library(knn)
+x &lt;- cbind(x_train,y_train)
+## Fitting model
+fit &lt;-knn(y_train ~ ., data = x,k=5)
+summary(fit)
+## Predict Output 
+predicted= predict(fit,x_test)
+</code></pre>
+
+<h3>K-Means</h3>
+
+<pre><code class="r">library(cluster)
+fit &lt;- kmeans(X, 3) # 5 cluster solution
+</code></pre>
+
+<h3>Random Forest</h3>
+
+<pre><code class="r">library(randomForest)
+x &lt;- cbind(x_train,y_train)
+## Fitting model
+fit &lt;- randomForest(Species ~ ., x,ntree=500)
+summary(fit)
+## Predict Output 
+predicted= predict(fit,x_test)
+</code></pre>
+
+</section>
+<section class="slide class6" id="part5-6">
+  <h2>PART 5: 9 others Common Prediction Algorythm  (4/4)</h2>
+  <h3>Dimensionality Reduction Algorithms</h3>
+
+<pre><code class="r">library(stats)
+pca &lt;- princomp(train, cor = TRUE)
+train_reduced  &lt;- predict(pca,train)
+test_reduced  &lt;- predict(pca,test)
+</code></pre>
+
+<h3>Gradient Boosting &amp; AdaBoost</h3>
+
+<pre><code class="r">library(caret)
+x &lt;- cbind(x_train,y_train)
+## Fitting model
+fitControl &lt;- trainControl( method = &quot;repeatedcv&quot;, number = 4, repeats = 4)
+fit &lt;- train(y ~ ., data = x, method = &quot;gbm&quot;, trControl = fitControl,verbose = FALSE)
+predicted= predict(fit,x_test,type= &quot;prob&quot;)[,2] 
+</code></pre>
+
+</section>
+<section class="slide class6" id="part5-7">
+  <h2>PART 5: Multivariate Analysis &amp; Clustering</h2>
+  <p>Those techniques are used when trying to analyse together multiple variables in order to define statistical proximity betwene individuals. Multiple Correspondence Analysis (MCA) is used for qualitative data and Principal Component Analysis (PCA) is used for quantitative data.</p>
+
+<pre><code class="r">require(FactoMineR)
+## We subset only the variables we want to analyse
+registration.subset &lt;- data.registration[,c(&quot;gender&quot;,&quot;case.size&quot;,&quot;occuation&quot;,&quot;education&quot;,&quot;child.num&quot;,&quot;coolevel1&quot;)]
+registration.mca = MCA(registration.subset)
+## Now we can get a description of the 2 composite descriptive componnent
+dimdesc(registration.mca)
+## Another step is to perform Hierarchical Clustering on Principal Components
+res.hcpc = HCPC(registration.mca)
+## The description of the resulting clusters is available through the following command
+registration.hcpc$desc.var
+registration.hcpc$desc.axes
+registration.hcpc$desc.ind
+</code></pre>
+
+<p>There are various packages to perform MCA, <a href="http://gastonsanchez.com/blog/how-to/2012/10/13/MCA-in-R.html">more about this here</a>. The <a href="http://factominer.free.fr/classical-methods/hierarchical-clustering-on-principal-components.html">Hierarchical Clustering on Principal Components technique is described here</a></p>
+
+</section>
+<section class="slide class6" id="part5-8">
+  <h2>PART 5: A large choice of packages</h2>
+  <p><img src="assets/img/infographics123.jpg" alt=""></p>
+
+</section>
+<section class="slide class7" id="part6-1">
+  <h2>PART 6: Generate Reports</h2>
+  <p>From RStudio, create a <a href="http://www.rstudio.com/ide/docs/authoring/markdown_notebooks">Rmarkdown file</a>, insert your code chunk and render it to get the output in the requested format.</p>
+
+<p><img src="assets/img/rm-cheatsheet1.png" alt=""></p>
+
+<p>Have a look at the <a href="http://shiny.rstudio.com/images/rm-cheatsheet.png">cheatsheet</a>, a <a href="http://pakillo.github.io/Rmarkdown_tutorial">tutorial</a> as well as the <a href="http://www.rstudio.com/ide/docs/authoring/using_markdown">docs</a>.</p>
+
+<p><img src="assets/img/markdownChunk.png" alt=""></p>
+
+</section>
+<section class="slide class7" id="part6-2">
+  <h2>PART 6: Generate Presentation</h2>
+  <p>This can be down using  Rmarkdown and the <a href="http://slidify.org/">Slidify package</a> or
+This presentation is generated using R.</p>
+
+<pre><code class="r">## Devtols is required to load packages from Github 
+require(devtools) 
+
+## Then install slidify
+install_github(&quot;slidify&quot;, &quot;ramnathv&quot;)
+install_github(&quot;slidifyLibraries&quot;, &quot;ramnathv&quot;)
+
+## load the library
+library(slidify)
+
+## generates a folder where your presentation will be created
+author(&quot;slides&quot;) 
+
+## and simply convert Rmardown to html presentation
+slidify(&quot;slides/index.Rmd&quot;) 
+</code></pre>
+
+<p>Alternatively, insert your <a href="http://www.r-bloggers.com/programmatically-create-interactive-powerpoint-slides-with-r/">R visualisation directly in powerpoint</a></p>
+
+</section>
+<section class="slide class6" id="part6-3">
+  <h2>PART 6: Dynamic datavisualisation</h2>
+  <p>Use the <a href="http://rmaps.github.io/">Rmaps</a> &amp; <a href="http://rcharts.io/gallery/">Rcharts</a> packages. Those packages provide interface between R and popular Javascript libraries like <a href="http://square.github.io/crossfilter/">Crossfilter</a> (multidimensional exploration), <a href="http://d3js.org/">d3.js</a>, <a href="http://www.polychartjs.com/">Polychart</a>, <a href="http://www.highcharts.com/">Highchart</a>, (datavisualisation) or <a href="http://leafletjs.com/">Leaflet.js</a> (webmapping).</p>
+
+<pre><code class="r">#Install the libraries
+require(devtools)
+install_github(&#39;ramnathv/rCharts@dev&#39;)
+install_github(&#39;ramnathv/rMaps&#39;)
+library(&quot;rCharts&quot;)
+library(&quot;rMaps&quot;)
+</code></pre>
+
+<p>Another options is <a href="https://plot.ly/r/">PlotLy</a>. The advantage is that it&#39;s based on ggplot2. Multiple complex plots can also be arranged together in a <a href="https://plot.ly/r/dashboard/">dashboard</a>.</p>
+
+<pre><code class="r">library(plotly)
+# Create a graph throughh ggplot2
+p &lt;- ggplot(data = d, aes(x = carat, y = price)) +
+  geom_point(aes(text = paste(&quot;Clarity:&quot;, clarity)), size = 4) +
+  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+# Convert it to an interactive one
+(gg &lt;- ggplotly(p))
+</code></pre>
+
+</section>
+<section class="slide " id="cl-1">
+  <h2>Conclusion</h2>
+  <p>A personal investment</p>
+
+<blockquote>
+<p>It takes a bit of time to learn at the begining but it will save you time in the long run!</p>
+</blockquote>
+
+<p>An opportunity to remain at the edge of current technologies</p>
+
+<blockquote>
+<p>If you don&#39;t move forward, you are likely already moving backward...</p>
+</blockquote>
+
+<p>To further learn, consult for instance the <a href="http://www.r-bloggers.com/learning-r-index-of-online-r-courses-october-2015/">index of Online R Courses as of October 2015</a> or start by reading this <a href="http://file.allitebooks.com/20150911/R%20in%20Action,%20Second%20Edition.pdf">book</a>.
+<img src="assets/img/Rblogger.png" alt=""></p>
+
+</section>
+<section class="slide " id="cl-2">
+  <h2>Some projects</h2>
+  <ul>
+<li><a href="https://github.com/unhcr-iraq/dtm-analysis">Iraq Displacement Tracking Matrix Analysis</a></li>
+<li><a href="https://github.com/unhcr-jordan/activityinfo">Jordan ActivityInfo extraction</a></li>
+<li><a href="https://github.com/unhcr-jordan/vaf">Jordan Vulnerability Assessment Framework</a></li>
+</ul>
+
+<p>Check this work-in-progress <a href="https://github.com/Edouard-Legoupil/humanitaRian-data-science">tutorial on HumanitaRian Data Science</a>. </p>
+
+<p><em>Last food for thought</em>:</p>
+
+<blockquote>
+<p>Authorship credit is too often absent from corporate and government reports; we should remember that people do things, not agencies, bureaus, departments, divisions.</p>
+
+<p><cite><a href="http://www.edwardtufte.com/tufte/books_be">Beautiful Evidence</a>, Edward Tufte  </cite></p>
+</blockquote>
+
+<p>Use R, share and showcase your projects on github &amp; <a href="https://github.com/Edouard-Legoupil/humanitaRian-data-science/issues/new">get them referenced here</a> 
+<img src="assets/img/humanitaRian.png" alt=""></p>
+
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
