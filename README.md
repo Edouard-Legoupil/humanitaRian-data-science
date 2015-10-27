@@ -6,7 +6,6 @@ R is a well documented platform and this document does not aims to replace all a
 
 ## Learning challenges
 
-
 However learning a new technology is always challenging. One needs to :
 * Find the right entry point that give you quickly the right pictures
 * Understand the potential of a platform through practical use case that will echo his regular work environment
@@ -18,5 +17,5 @@ However learning a new technology is always challenging. One needs to :
 
 This book is published in Github with Gitbook
 
-Please raise any questions you have as an issue in the repository. I will (if I can ammend the book)
+Please raise any questions you have as an issue in the repository. 
 
