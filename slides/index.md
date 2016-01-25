@@ -31,12 +31,13 @@ It contains plenty of [links](index.html#plan) that lead to additional ressource
 With Mobile data collection, it's now easy to collect thousends of records for hundreds of variables... For instance, the "Refugees home visit survey"" in Jordan has 700 variables recorded on more than 70,000 observations!
 
 
-- ***Answer complex questions***: Univariate analysis provides too long reports. Multivariate analysis are required to address questions that includes the processing of multiple variables. Potentials questions could be:
-"*What are the main factors attached to the occurence of socio-economic vulnerability?*"" or "*Is there a correlation between a certain type of violation and a specific profile within the population?*" or"*Can we identify individuals within a population with abnormal profiles ralted to the rest of the population?*"
-
-
 -  ***Discover hidden patterns*** ; Hypothesis-based deductive reasoning only allows to confirm something known before while [patterns detection allows for inductive approaches](http://www.boozallen.com/media/file/The-Field-Guide-to-Data-Science.pdf). 
-Exploratory analysis are required to find out for instance if "*Is there a multidiemsnional typology of individuals within this large population group*"
+Exploratory analysis are required to identify multidiemsnional characteristics for instance if "*Is there a typology of individuals within this large population group*"
+
+
+- ***Answer complex questions***: Univariate analysis provides too long reports. Multivariate analysis are required to address questions that includes the processing of multiple variables. Potentials questions could be:
+"*What are the main factors attached to the occurrence of socio-economic vulnerability?*" or "*Is there a correlation between a certain type of violation and a specific profile within the population?*" or "*Can we identify individuals within a population with abnormal profiles ralted to the rest of the population?*"
+
 
 
 ![](assets/img/Maturity.png)
