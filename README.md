@@ -1,5 +1,6 @@
 
 ![](slides/assets/img/datascience.png)
+[see the article here](http://blog.veritythink.com/post/105715607274/humanitarian-data-scientist-who-and-how)
 
 # Become a humanitarian data scientist
 
