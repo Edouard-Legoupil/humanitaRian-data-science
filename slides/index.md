@@ -148,7 +148,7 @@ Using the right combination of packages, you can integrate all necessary data an
 
 ![](assets/img/analysis.png)
 
-
+More on reproducible analysis [here](https://ropensci.github.io/reproducibility-guide/sections/introduction/)
 
 --- .class1 #intro6 bg:lightgoldenrodyellow
 
